@@ -6,16 +6,19 @@ const app = new Hono();
 
 app.get(
 	"*",
-	reactRenderer(({ children }: { children: ReactNode}) => {
-		return (
-			<html lang="en">
-				<body>
-					<h1>React + Hono</h1>
-					<div>{children}</div>
-				</body>
-			</html>
-		);
-	}),
+	reactRenderer(
+		({ children }: { children: ReactNode }) => {
+			return (
+				<html lang="en">
+					<body>
+						<h1>React + Hono</h1>
+						<div>{children}</div>
+					</body>
+				</html>
+			);
+		},
+		{ stream: true },
+	),
 );
 
 app.get("/", (c) => {
