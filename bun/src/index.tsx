@@ -22,7 +22,9 @@ app.get(
 );
 
 app.get("/", (c) => {
-	return c.render(<p>Welcome!</p>);
+  const res = c.render(<p>Welcome!</p>)
+  console.log("rendered /")
+	return res;
 });
 
 export default app;
